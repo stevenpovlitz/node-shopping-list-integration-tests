@@ -69,6 +69,8 @@ describe('Shopping List', function() {
   it('should add an item on POST', function() {
     const newItem = {name: 'coffee', checked: false};
     return chai.request(app)
+      // so this next line is using "client-side" protocol to post to itself, then
+      // inspecting the result?
       .post('/shopping-list')
       .send(newItem)
       .then(function(res) {
