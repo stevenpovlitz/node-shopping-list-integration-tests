@@ -184,7 +184,7 @@ describe("recipes", function() {
         const expectedKeys = ['checked', 'id'];
         getValidation(res, expectedKeys);
       });
-  })
+  });
 
   it('should POST a new recipe', function() {
     // make item to try and post
@@ -203,21 +203,28 @@ describe("recipes", function() {
         res.body.should.include.keys('name', 'ingredients');
       })
   });
-  /*
-  it('should delete items on DELETE', function() {
+
+  // testing a POST without needed items
+  // TODO:get this to work
+  // somewhere, I think I need ".should.throw(Error)"
+  it('should fail to POST a new recipe', function() {
+    // make item to try and post
+    const postItem = {
+      "name": "Pork Sandwich",
+      // point of failure - should be an array for ingredients here
+    };
+
     return chai.request(app)
-      // first have to get so we have an `id` of item
-      // to delete
-      .get('/shopping-list')
-      .then(function(res) {
-        return chai.request(app)
-          .delete(`/shopping-list/${res.body[0].id}`);
-      })
-      .then(function(res) {
-        res.should.have.status(204);
-      });
+      // largely copied from previous res function
+      // ... posible to encapsulate large parts of it?
+      .post('/recipes')
+      .send(postItem)
+      .then((function(res) {
+          console.log(`STATUS:\n${res.status}`); // debugging code
+          // res.should.have.status(204);
+        }
+      ))
   });
-    */
 
   it('should DELETE a recipe', function() {
     return chai.request(app)
