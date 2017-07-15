@@ -139,7 +139,7 @@ describe('Shopping List', function() {
       // prove that the PUT request has right status code
       // and returns updated item
       .then(function(res) {
-        // TODO: figure out why I can't just call like thsi:
+        // TODO: figure out why I can't just call like this:
         // .then(putValidation(res, updateData));
         putValidation(res, updateData)
       });
@@ -180,7 +180,7 @@ describe("recipes", function() {
       .get('/shopping-list')
       .then(function(res) {
         // why is below checked and id instead of name and ingredients?
-        // TODO: figure out if the below is correct
+        // TODO: figure out if the below is correct - what's with 'checked'?
         const expectedKeys = ['checked', 'id'];
         getValidation(res, expectedKeys);
       });
@@ -205,7 +205,7 @@ describe("recipes", function() {
   });
 
   // testing a POST without needed items
-  // TODO:get this to work
+  // TODO:get this function to work
   // somewhere, I think I need ".should.throw(Error)"
   it('should fail to POST a new recipe', function() {
     // make item to try and post
