@@ -1,3 +1,6 @@
+// TODO: check against sollution, found at:
+// https://github.com/Thinkful-Ed/node-shopping-list-integration-tests/tree/feature/tests-for-recipes
+
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 
